@@ -21,7 +21,7 @@ class Car{
                 }
                 callback(error, cars);
             }else{
-                callback(null, null);
+                callback(null, []);
             }
         });
     }
