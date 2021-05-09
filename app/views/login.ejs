@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs', {stylesheet: false, title: 'Login'}) -%>
+    
+<body>
+    <div id="app">
+        <%- include('./partials/appTitle.ejs') %>
+        <div>
+            <form action="/login" method='post' class="centered" @submit.prevent="login">
+                <h1>Login</h1>
+                <div class="form-field">
+                    <label for="name">Nom d'utilisateur</label>
+                    <input type="text" name="name" id="name" ref="name" required>
+                </div>
+                <div class="form-field">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" name="password" id="password" ref="password" required>
+                </div>
+                <% if(error){ %> 
+                    <div class="errors">
+                        <p class="error" style='color:red;'><%= error %> </p>
+                    </div>
+                <% } %> 
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs', {stylesheet: 'carCategoryList.css', title: 'Catégories de voitures'}) -%>
+    
+<body>
+    <div id="app">
+        <%- include('../partials/appTitle.ejs') %>
+        <%- include('../partials/nav.ejs') %> 
+        <form method="post" class="centered" action="/cars<%= edit ? '/'+car.id+'/update' : '' %>">
+            <div class="form-field">
+                <label for="car">Nom de la voiture*</label>
+                <input type="text" name="name" id="car" required value="<%= car.name %>">
+            </div>
+            <div class="form-field">
+                <label for="config-car">Catégorie*</label>
+                <select name="categoryId" id="config-car" required>
+                    <% for(const category of categories){ %> 
+                        <option value="<%= category.id %>" <%= category.id === car.categoryId ? "selected" : '' %>><%= category.name %></option>
+                    <% } %>
+                </select>
+            </div>
+            <button type="submit"><%= edit ? 'Modifier' : 'Ajouter' %></button>
+        </form>
+
+    </div>
+</body>
+</html>
+

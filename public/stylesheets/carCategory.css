@@ -1,0 +1,24 @@
+.car-category{
+    background: #2f7592;
+    color: white;
+    padding: 1%;
+    text-align: left;
+}
+
+.car-category h1{
+    text-align: start;
+    margin-top: 0;
+}
+
+.car-list{
+    margin-left: 1%;
+}
+
+.actions{
+    margin-top: 1%;
+}
+
+.actions button{
+    margin: .5%;
+    background: #333333;
+}

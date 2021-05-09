@@ -1,0 +1,10 @@
+.car-categories-list{
+    color: white;
+    text-align: center;
+}
+
+.car-categories-list-item{
+    margin: 2.5% 0%;
+    padding: 1%;
+    background: #2f7592;
+}

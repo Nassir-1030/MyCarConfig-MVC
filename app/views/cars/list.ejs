@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs', {stylesheet: 'carList.css', title: 'Catégories de voitures'}) -%>
+    
+<body>
+    <div id="app">
+        <%- include('../partials/appTitle.ejs') %>
+        <%- include('../partials/nav.ejs') %> 
+        <div>
+            <div class="header-bar centered">
+                <a href="/cars/new" class="button-link">
+                    Ajouter une nouvelle voiture
+                </a>
+            </div>
+            <div class="car-list centered">
+                <% for(const car of cars){ %>
+                    <%- include('listItem', {car: car}) -%> 
+                <% } %> 
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

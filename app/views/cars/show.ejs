@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs', {stylesheet: 'car.css', title: 'Catégories de voitures'}) -%>
+    
+<body>
+    <div id="app">
+        <%- include('../partials/appTitle.ejs') %>
+        <%- include('../partials/nav.ejs') %> 
+        <div class="car centered">
+            <div class="content">
+                <h1>Voiture</h1>
+                <p>Nom: <%= car.name %></p>
+                <% if(car.category){ %>
+                    <p>Catégorie: <a href="/car-categories/<%= car.category.id %>"><%= car.category.name %></a></p>
+                <% } %> 
+            </div>
+            <div class="actions">
+                <a href="/cars/<%= car.id %>/edit">
+                    <button>Modifier</button>
+                </a>
+                <form class="button-form" action="/cars/<%= car.id %>/delete" method="POST">
+                    <button>Supprimer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

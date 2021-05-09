@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs', {stylesheet: 'carConfiguration.css', title: 'Login'}) -%>
+    
+<body>
+    <div id="app">
+        <%- include('../partials/nav.ejs') %> 
+        <form action="/car-configurations<%= edit ? '/'+ carConfiguration.id+'/update' : '' %>" class="centered" method="post">
+            <div class="form-field">
+                <label for="config-name">Nom de la configuration*</label>
+                <input type="text" name="name" id="config-name" value="<%= carConfiguration.name %>" required>
+            </div>
+            <div class="form-field">
+                <label for="config-car">Voiture*</label>
+                <select name="carId" id="config-car" value="<%= carConfiguration.car ? carConfiguration.car.id : null %>" required>
+                    <% for(const availableCar of cars){ %> 
+                        <option value="<%= availableCar.id %>" <%= availableCar.id === (carConfiguration.car ? carConfiguration.car.id : null) ? "selected" : "" %>><%= availableCar.name %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="config-options">Options*</label>
+                <textarea name="options" cols="30" rows="10" id="config-options" required><%= carConfiguration.options %></textarea>
+            </div>
+            <button type="submit"><%= edit ? 'Modifier' : 'Ajouter' %></button>
+        </form>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs', {stylesheet: 'carCategory.css', title: 'Catégorie de voiture'}) -%>
+    
+<body>
+    <div id="app">
+        <%- include('../partials/appTitle.ejs') %>
+        <%- include('../partials/nav.ejs') %> 
+        <div class="car-category centered">
+            <div class="content">
+                <h1>Catégorie</h1>
+                <p>Nom: <%= carCategory.name %></p>
+                <div class="car-list">
+                    <h4>Voitures dans cette catégorie</h4>
+                    <% if(carCategory.cars && carCategory.cars.length > 0){ %> 
+                        <ul>
+                            <% for(const car of carCategory.cars){ %> 
+                                <li>
+                                    <a href="/cars/<%= car.id %>"><%= car.name %></a>
+                                </li>
+                            <% } %>
+                        </ul>
+                    <% }else{ %> 
+                        <p>Aucune voiture ne figure dans cette catégorie.</p>
+                    <% } %>
+                </div>
+            </div>
+            <div class="actions">
+                <a href="/car-categories/<%= carCategory.id %>/edit">
+                    <button>Modifier</button>
+                </a>
+                <!-- Allow deletion ONLY if there is no linked car -->
+                <% if(!carCategory.cars || carCategory.cars.length === 0){ %> 
+                    <form class="button-form" action="/car-categories/<%= carCategory.id %>/delete" method="POST">
+                        <button>Supprimer</button>
+                    </form>
+                <% } %> 
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+

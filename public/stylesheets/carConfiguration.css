@@ -1,0 +1,32 @@
+.car-configuration{
+    background: #3571a7;
+    color: white;
+    box-shadow: 0 2px 3px #a7a7a7;
+    text-align: start;
+    padding: 1.5%;
+}
+
+.car-configuration .actions{
+    padding-top: 5px;
+}
+
+.car-configuration .actions button{
+    margin-right: 1%;
+    background: #505050;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    margin: 0 0 1% 0;
+}
+
+.sub-head{
+    font-size: 75%;
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: lighter;
+}

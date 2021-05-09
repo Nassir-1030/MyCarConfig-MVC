@@ -1,0 +1,31 @@
+
+<% if(carConfiguration){ %> 
+    <div class="car-configuration centered">
+        <div class="head">
+            <h3 class="title">
+                <%= carConfiguration.name %>
+            </h3>
+            <div class="sub-head">Configuration <strong class=""><%= carConfiguration.car.name %></strong> crée par <strong class=""><%= carConfiguration.user.name %></strong></div>
+        </div>
+        <div class="options">
+            <h4>Options</h4>
+            <ul>
+                <% const options = carConfiguration.options.split(','); %>
+                <% for(const option of options){ %> 
+                    <li>
+                        <%= option %>
+                    </li>
+                    <% } %>
+                </ul>
+        </div>
+        <div class="actions">
+            <a href="/car-configurations/<%= carConfiguration.id %>" ><button>Voir</button></a>
+            <a href="/car-configurations/<%= carConfiguration.id %>/edit" ><button>Modifier</button></a>
+            <form class="button-form" action="/car-configurations/<%= carConfiguration.id %>/delete" method="POST">
+                <button>Supprimer</button>
+            </form>
+        </div>
+    </div>
+<% }else{ %> 
+    Aucune configuration disponible
+<% } %>     

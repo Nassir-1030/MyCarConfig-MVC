@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs', {stylesheet: 'carConfigurationList.css', title: 'Login'}) -%>
+    
+<body>
+    <div id="app">
+        <%- include('../partials/appTitle.ejs') %>
+        <%- include('../partials/nav.ejs') %> 
+        <div>
+            <div class="header-bar centered">
+                <a href="/car-configurations/new" class="button-link">
+                    Ajouter une nouvelle configuration
+                </a>
+                <!-- TODO -->
+                <form action="/car-configurations" class="button-form" id="search-form" method="GET">
+                    <input type="search" name="search" placeholder="Rechercher une configuration" id="config-filter" value="<%= search %>">
+                </form>
+            </div>
+            <div class="car-configuration-list">
+                <% for(const configuration of configurations){ %>
+                        <%- include('listItem', {carConfiguration: configuration}) -%>
+                <% } %> 
+            </div>
+        </div>
+
+    </div>
+    <script>
+        const filter = document.getElementById('search-form');
+
+        filter.addEventListener('change', function(e){
+            filter.submit();
+        });
+    </script>
+</body>
+</html>

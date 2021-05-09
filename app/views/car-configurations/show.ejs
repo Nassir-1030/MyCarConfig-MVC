@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs', {stylesheet: 'carConfiguration.css', title: 'Login'}) -%>
+    
+<body>
+    <div id="app">
+        <%- include('../partials/appTitle.ejs') %>
+        <%- include('../partials/nav.ejs') %> 
+        
+        <% if(carConfiguration){ %> 
+            <div class="car-configuration centered">
+                <div class="header">
+                    <h2><%= carConfiguration.name %></h2>
+                </div>
+                <div class="body">
+                    <div class="car">
+                        <h4>Voiture</h4>
+                        <a href="/cars/<%= carConfiguration.car.id %>">
+                            <%= carConfiguration.car.name %>
+                        </a>
+                    </div>
+                    <div class="user">
+                        <h4>Auteur</h4>
+                        <p><%= carConfiguration.user.name %></p>
+                    </div>
+                    <div class="options">
+                        <h4>Options</h4>
+                        <ul>
+                            <% const options = carConfiguration.options.split(','); %>
+                            <% for(const option of options){ %> 
+                                <li>
+                                    <%= option %>
+                                </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a href="/car-configurations/<%= carConfiguration.id %>/edit">
+                        <button>Modifier</button>
+                    </a>
+
+                    <form class="button-form" action="/car-configurations/<%= carConfiguration.id %>/delete" method="POST">
+                        <button>Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        <% }else{ %> 
+            Aucune configuration disponible
+        <% } %>
+
+
+    </div>
+</body>
+</html>

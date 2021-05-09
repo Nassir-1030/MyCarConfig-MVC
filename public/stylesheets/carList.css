@@ -1,0 +1,15 @@
+.car-list{
+    color: white;
+    text-align: center;
+}
+
+.car-list-item{
+    margin: 2.5% 0%;
+    padding: 1%;
+    background: #2f7592;
+    cursor: pointer;
+}
+
+select#car-filter{
+    width: 50%;
+}

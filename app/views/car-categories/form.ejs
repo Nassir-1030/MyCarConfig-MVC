@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs', {stylesheet: 'carConfigurationList.css', title: 'Login'}) -%>
+    
+<body>
+    <div id="app">
+        <%- include('../partials/appTitle.ejs') %>
+        <%- include('../partials/nav.ejs') %>
+        <form method="post" class="centered" action="/car-categories<%= edit ? '/'+carCategory.id+'/update' : '' %>" method="POST">
+            <div class="form-field">
+                <label for="category">Nom de la catégorie*</label>
+                <input type="text" name="name" required value="<%= carCategory.name %>">
+            </div>
+            <button type="submit"><%= edit ? 'Modifier' : 'Ajouter' %></button>
+        </form>
+    </div>
+</body>
+</html>
+
