@@ -19,7 +19,7 @@ class CarCategory{
 
                 callback(null, carCategories);
             }else{
-                callback(null, null)
+                callback(null, [])
             }
         });
     }
